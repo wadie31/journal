@@ -1,0 +1,62 @@
+
+<mat-toolbar color="primary">
+  <div  style="margin-right: -170px;">
+  <button  mat-button  (click)="articlesPage()">Article</button>
+  <button   mat-button  (click)="accueilPage()">Accueil</button>
+  </div>
+  <span style="margin-left: 852px;font-family: Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;" >
+
+  
+  {{userArgus.nom}}&nbsp;{{userArgus.prenom}}
+  <button  mat-button  (click)="logout()">Logout</button>
+</span>
+</mat-toolbar>
+<div class="alert alert-warning">
+Articles
+</div>
+
+
+  <div class="search-results"
+            infinite-scroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollUpDistance]="1.5"
+            [infiniteScrollThrottle]="500"
+            (scrolled)="onScrollDown()"
+           >
+        
+<div  style="margin-left: 16px;"  *ngFor="let a of articles">
+  
+  <hr>
+  <div style="margin-right: 850px;" class="alert alert-success">
+  <span style="margin-left: 15px;">{{a.user.nom}} {{a.user.prenom}} </span></div>
+  <hr>
+<div><br>
+<td style="font-size: 20px;font-style: oblique;color: blue">{{a.title}}</td>
+</div>
+<div>
+  <br>
+  <td>{{a.text}}</td>
+</div>
+<div>
+   <br>
+  <td><img style="margin-left:160px" src="data:image/png;base64,{{a.picture}}"></td>
+</div>
+<div>
+  <br>
+  <div class="col-md-12" *ngFor="let com of a.commentaires; let i = index" style="list-style-type:none;margin-top: 10px;margin-top: 10px;border-bottom: 1px solid rgba(0,0,0,.12);border-top: 1px solid rgba(0,0,0,.12);min-height: 50px;">
+                               <b style="color: blue">{{com.user.nom}} {{com.user.prenom}}</b><br>
+                              {{com.commentaire}} 
+<hr>
+</div>
+<div class="alert alert-success">
+  <br>
+   <input type="text" class="form-control" name="title" [(ngModel)]="comment.commentaire"  /> <br>
+  <button style="background-color:aqua"  mat-button  (click)="commenter(a.idArticle)">Add Comment</button></div></div>
+
+
+</div>
+</div>
+
+
+

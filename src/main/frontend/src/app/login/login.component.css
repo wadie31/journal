@@ -1,0 +1,20 @@
+.auth-main {
+    display: flex;
+    align-items: center;
+    height: 58%;
+    width: 81%;
+    position: absolute;
+}
+
+.auth-block {
+    width: 540px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    padding: 32px;
+}
+
+div {
+    display: block;
+}

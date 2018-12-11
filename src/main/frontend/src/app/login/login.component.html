@@ -1,0 +1,36 @@
+
+<!-- <mat-toolbar color="primary"></mat-toolbar> -->
+<ng4-loading-spinner> </ng4-loading-spinner>
+<p-accordion >
+    <p-accordionTab>
+        </p-accordionTab>
+    </p-accordion>
+<div class="row" style=" margin-top: 13%;   margin-left: 445px; width: 1081px;"  >
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"></h3>
+            </div>
+            <div class="panel-body">
+                <span [ngStyle]="{'margin-left': '30%','color' : '#a94442'}" *ngIf="err">{{msg}}</span>
+                <form style="margin-left: -200px;">
+                    <fieldset>
+                        <div class="form-group">
+                            <input  type="text" class="form-control" name="password" [(ngModel)]="model.username" #username="ngModel"  placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password"  [(ngModel)]="model.password" #password="ngModel" placeholder="Password"/> 
+                        </div>
+                        <!-- Change this to a button or input when using this as a form -->
+                        <button [disabled]="model.password==null || model.password==''" (click)="login()" class="btn btn-success btn-block">Login</button>
+                       
+                    </fieldset>
+                    <br>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

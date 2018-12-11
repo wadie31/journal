@@ -1,0 +1,31 @@
+﻿<mat-toolbar color="primary">
+  <div  style="margin-right: -170px;">
+  <button  mat-button  (click)="articlesPage()">Article</button>
+  <button   mat-button  (click)="accueilPage()">Accueil</button>
+  </div>
+  <span style="margin-left: 809px;font-family: Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;" >
+
+  
+  {{userArgus.nom}}&nbsp;{{userArgus.prenom}}
+  <button  mat-button  (click)="logout()">Logout</button>
+</span>
+</mat-toolbar>
+<div class="alert alert-warning">
+Ajout Article
+</div>
+
+<div style="margin-right: -20px" class="col-md-6 col-md-offset-3">
+
+  <div *ngIf="display==true" class="alert alert-success">
+  <a (click)="closeDialog()" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<strong>Article added successfully</strong> 
+</div> <br>
+  <span>Article</span>
+<br><br>
+  
+ <input type="text" placeholder="Titre" class="form-control" name="title" [(ngModel)]="article.title"  /> <br>
+ <textarea type="text" placeholder="Text" class="form-control" name="text" [(ngModel)]="article.text"></textarea><br>
+  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx,JPG,png">
+  <button style="margin-left: 490px;"  class="btn btn-primary" (click)="ajouter()">Ajouter</button>
+  <br><br>
